@@ -1,8 +1,51 @@
 form {
-    float: right;
-    margin-top: 5%;
+    position:absolute;
 }
 
-label {
-    
+label,
+ p {
+    color: white;
+}
+
+img {
+    float:left;
+    margin: 10px;
+}
+
+button {
+    margin: 5px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+button:hover {
+    background-color: black; 
+    color: white;
+}
+
+#add-player {
+    margin: 5px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+
+}
+
+#add-player:hover {
+    background-color: black;
+    color: white;
+}
+
+#player-input {
+    width: 100%;
+}
+
+body {
+      /* Visual */
+    background: url("../images/background.jpg") no-repeat fixed center; 
+    background-size: 100% 100%;
+    z-index: -3;
 }

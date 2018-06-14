@@ -1,6 +1,6 @@
 // Initial array of players
 var players = [
-	"Lebron+James",
+	"Lebron James",
 	"Carmelo Anthony",
 	"Allen Iverson",
 	"Michael Jordan",
@@ -20,12 +20,13 @@ var players = [
 	"Chris Paul"];
 
 // Generic function for capturing the player name from the data-attribute
-$(".player").on("click", function () {
+$(document).on("click", ".player", function () {
 
 	var playerName = $(this).attr("data-name");
 
 	// Constructing a queryURL using the player name
-	var queryURL = "https://api.giphy.com/v1/gifs/search?&q=" + playerName + "&api_key=3cN0ojC8ek29YDso9Ljs7lSy2BJlgXOV&limit=10";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?&q="
+	 + playerName + "&api_key=3cN0ojC8ek29YDso9Ljs7lSy2BJlgXOV&limit=10";
 
 	// Performing an AJAX request with the queryURL
 	$.ajax({
@@ -49,9 +50,20 @@ $(".player").on("click", function () {
 				var p = $("<p>").text("Rating: " + results[i].rating);
 
 				// Creating and storing an image tag
-				var playerImage = $("<img>");
+				var playerImage = $("<img>")
 				// Setting the src attribute of the image to a property pulled off the result item
-				playerImage.attr("src", results[i].images.fixed_height.url);
+				playerImage.attr("src", results[i].images.fixed_height_still.url);
+				// Setting the data-still attribute to tell the gif to freeze
+				playerImage.attr("data-still", results[i].images.fixed_height_still.url);
+				// Setting the data-animate attribute to tell the gif to play
+				playerImage.attr("data-animate", results[i].images.fixed_height.url);
+				// Setting all the images to the still attribute
+				playerImage.attr("data-state", "still");
+				// Adding a class to all the images named 'gif'
+				playerImage.addClass("gif");
+
+
+				
 
 				// Appending the paragraph and image tag to the playerDiv
 				playerDiv.append(p);
@@ -60,26 +72,25 @@ $(".player").on("click", function () {
 				// Prependng the playerDiv to the HTML page in the "#gifs-appear-here" div
 				$("#gifs-appear-here").prepend(playerDiv);
 			}
+
+			$(".gif").on("click", function() {
+				// The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+				var state = $(this).attr("data-state");
+				// If the clicked image's state is still, update its src attribute to what its data-animate value is.
+				// Then, set the image's data-state to animate
+				// Else set src to the data-still value
+				if (state === "still") {
+				  $(this).attr("src", $(this).attr("data-animate"));
+				  $(this).attr("data-state", "animate");
+				} else {
+				  $(this).attr("src", $(this).attr("data-still"));
+				  $(this).attr("data-state", "still");
+				}
+			  });
+
 		});
 
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	// Function for displaying player data
@@ -99,6 +110,8 @@ $(".player").on("click", function () {
 			a.addClass("player");
 			// Adding a data-attribute
 			a.attr("data-name", players[i]);
+			// Adding a data-attribute to determine whether image is still or animated
+			a.attr("data-state", "still");
 			// Providing the initial button text
 			a.text(players[i]);
 			// Adding the button to the HTML
@@ -121,10 +134,7 @@ $(".player").on("click", function () {
 
 	});
 
-	// Function for displaying the player info
-	// We're adding a click event listener to all elements with the class "player"
-	// We're adding the event listener to the document because it will work for dynamically generated elements
-	// $(".players").on("click") will only add listeners to elements that are on the page at that time
-
 	// Calling the renderButtons function to display the intial buttons
 	renderButtons();
+
+
