@@ -21,7 +21,7 @@ var players = [
 
 // Generic function for capturing the player name from the data-attribute
 $(document).on("click", ".player", function () {
-
+	$("#gifs-appear-here").empty();
 	var playerName = $(this).attr("data-name");
 
 	// Constructing a queryURL using the player name
