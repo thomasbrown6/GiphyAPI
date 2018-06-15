@@ -38,13 +38,15 @@ $(document).on("click", ".player", function () {
 
 			var results = response.data;
 
-			console.log(response);
+			console.log(response.data);
 
 			// Looping through each result item
 			for (var i = 0; i < results.length; i++) {
 
 				// Creating and storing a div tag
-				var playerDiv = $("<div>");
+				var playerDiv = $("<div class='col-6'>");
+
+				playerDiv.addClass("results");
 
 				// Creating a paragraph tag with the result item's rating
 				var p = $("<p>").text("Rating: " + results[i].rating);

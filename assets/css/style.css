@@ -7,9 +7,13 @@ label,
     color: white;
 }
 
+p {
+    margin-left: 10px;
+}
+
 img {
     float:left;
-    margin: 10px;
+    margin-left: 10px;
 }
 
 button {
@@ -49,3 +53,27 @@ body {
     background-size: 100% 100%;
     z-index: -3;
 }
+
+@media screen and (max-width: 980px) {
+
+
+  
+  }
+  
+  @media screen and (max-width: 768px) {
+    form {
+        position: fixed;
+        left: 30%;
+    }
+
+  }
+  
+  @media screen and (max-width: 640px) {
+
+    form {
+        position: fixed;
+        left: 20%;
+    }
+  
+
+    }
