@@ -1,6 +1,3 @@
-form {
-    position:absolute;
-}
 
 label,
  p {
@@ -19,9 +16,14 @@ img {
 button {
     margin: 5px;
     border-radius: 8px;
-    background-color: white;
+    background-color: gray;
     color: black;
     border: 2px solid black;
+    font-size: 22px;
+}
+
+form {
+    font-size: 18px;
 }
 
 button:hover {
@@ -32,7 +34,7 @@ button:hover {
 #add-player {
     margin: 5px;
     border-radius: 8px;
-    background-color: white;
+    background-color: gray;
     color: black;
     border: 2px solid black;
 
@@ -43,37 +45,33 @@ button:hover {
     color: white;
 }
 
-#player-input {
-    width: 100%;
-}
-
 body {
-      /* Visual */
     background: url("../images/background.jpg") no-repeat fixed center; 
     background-size: 100% 100%;
     z-index: -3;
 }
 
-@media screen and (max-width: 980px) {
 
+#topRow {
+    margin-top: 20px;
+    border-bottom: 2px solid gray;
+}
 
-  
-  }
-  
-  @media screen and (max-width: 768px) {
-    form {
-        position: fixed;
-        left: 30%;
-    }
+#secondRow {
+    margin-top: 20px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
 
-  }
-  
-  @media screen and (max-width: 640px) {
+h1 {
+    color: gray;
+}
 
-    form {
-        position: fixed;
-        left: 20%;
-    }
-  
+.gif {
+    border: 2px solid gray;
+    border-radius: 25px;
+}
 
-    }
+#gifs-appear-here {
+    margin-top: 20px;
+}

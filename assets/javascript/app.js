@@ -5,23 +5,17 @@ var players = [
 	"Allen Iverson",
 	"Michael Jordan",
 	"Steph Curry",
-	"Magic Johnson",
 	"Kyrie Irving",
 	"Kevin Durant",
-	"Klay Thompson",
-	"Ben Simmons",
 	"JR Smith",
 	"Scottie Pippen",
-	"Larry Bird",
 	"Dwyane Wade",
-	"Paul George",
 	"Russel Westbrook",
-	"Kobe Bryant",
-	"Chris Paul"];
+	"Kobe Bryant"
+];
 
 // Generic function for capturing the player name from the data-attribute
 $(document).on("click", ".player", function () {
-	$("#gifs-appear-here").empty();
 	var playerName = $(this).attr("data-name");
 
 	// Constructing a queryURL using the player name
@@ -52,7 +46,7 @@ $(document).on("click", ".player", function () {
 				var p = $("<p>").text("Rating: " + results[i].rating);
 
 				// Creating and storing an image tag
-				var playerImage = $("<img>")
+				var playerImage = $("<img>");
 				// Setting the src attribute of the image to a property pulled off the result item
 				playerImage.attr("src", results[i].images.fixed_height_still.url);
 				// Setting the data-still attribute to tell the gif to freeze
